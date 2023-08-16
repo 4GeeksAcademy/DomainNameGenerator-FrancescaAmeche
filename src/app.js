@@ -8,11 +8,11 @@ import "./assets/img/4geeks.ico";
 window.onload = function() {
   //write your code here
 
-  let pronoun = ["the", "our", "my"];
-  let adj = ["colorful", "magical", "shining"];
-  let noun = ["rainbow", "unicorn", "dragon"];
+  let pronoun = ["the", "my"];
+  let adj = ["colorful", "magical"];
+  let noun = ["rainbow", "unicorn", "castle"];
 
-  let createDomainNames = (arr1 = [], arr2 = [], arr3 = []) => {
+  function generateDomainNames(arr1 = [], arr2 = [], arr3 = []) {
     let domainNames = [];
     for (let i = 0; i < arr1.length; i++) {
       for (let j = 0; j < arr2.length; j++) {
@@ -22,6 +22,12 @@ window.onload = function() {
       }
     }
     return domainNames;
-  };
-  console.log(createDomainNames(pronoun, adj, noun));
+  }
+
+  let magicalDomainNames = generateDomainNames(pronoun, adj, noun);
+  console.log(magicalDomainNames);
+
+  let list = magicalDomainNames.map(element => `<li>${element}</li>`);
+
+  document.querySelector("#domainName").innerHTML = list.join("");
 };
